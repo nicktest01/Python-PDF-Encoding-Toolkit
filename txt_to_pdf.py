@@ -12,7 +12,7 @@ os.makedirs(output_dir, exist_ok=True)
 def generate_demo_pdf():
     pdf = FPDF()
     pdf.add_page()
-    font_path = r"Fonts\msjh.ttc" 
+    font_path = r"Nicktest.ttc" 
 
     try:
         # 使用num=0 指定 ttc 裡面第一個字體

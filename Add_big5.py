@@ -6,7 +6,7 @@ target_dir = r"Nicktest\Python-PDF-Encoding-Toolkit\Add_big5"
 file_path = os.path.join(target_dir, "big5.txt")
 
 # 寫入 Big5 測試檔案 預設為ANSI格式
-test_content = "這是一段繁體中文測試：電腦、軟體、編碼。"
+test_content = "繁體中文測試：測試編碼。"
 
 try:
     with open(file_path, 'w', encoding='big5') as f:
