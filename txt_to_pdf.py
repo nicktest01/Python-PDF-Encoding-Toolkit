@@ -1,41 +1,46 @@
 import os
 from fpdf import FPDF
 
-# 1. 設定路徑與檔名
-base_path = r"C:\Users\Nicktest\Documents\nicktest_txt_to_pdf"
-input_file = os.path.join(base_path, "utf8.txt")
-output_file = os.path.join(base_path, "output.pdf")
+# 路徑
+source_file = r"Nicktest\Python-PDF-Encoding-Toolkit\Big5_to_utf8\big5_utf8.txt"
+output_dir = r"Nicktest\Python-PDF-Encoding-Toolkit\TXT_to_PDF"
+output_file = os.path.join(output_dir, "Nicktest_to_TXT_PDF_demo.pdf")
 
-# Windows 系統字體路徑 (直接抓系統的，不用手動複製檔案)
-font_path = r"C:\Windows\Fonts\msjh.ttc" 
+# 檢查資料夾，沒有的話自動補一個
+os.makedirs(output_dir, exist_ok=True)
 
-def convert_to_pdf():
-    # 初始化 PDF
+def generate_demo_pdf():
     pdf = FPDF()
-    pdf.set_auto_page_break(auto=True, margin=15) # 設定自動分頁，邊距 15mm
     pdf.add_page()
+    font_path = r"Fonts\msjh.ttc" 
 
-    # 載入字體：直接用系統的 .ttc，指定 index=0 使用標準體
-    # 如果系統沒這字體，請確保路徑正確
-    pdf.add_font("MSJH", style="", fname=font_path, font_index=0)
-    pdf.set_font("MSJH", size=12)
-
-    # 2. 讀取並寫入內容
     try:
-        with open(input_file, "r", encoding="utf-8") as f:
-            for line in f:
-                # 使用 multi_cell 確保長句子會自動換行
-                # w=0 代表寬度撐滿到邊界，h=10 是行高
-                pdf.multi_cell(w=0, h=10, txt=line)
-        
-        # 3. 產出檔案
-        pdf.output(output_file)
-        print(f"✅ 成功：PDF 已儲存於：{output_file}")
+        # 使用num=0 指定 ttc 裡面第一個字體
+        pdf.add_font("MSJH", style="", fname=font_path, num=0)
 
-    except FileNotFoundError:
-        print(f"❌ 錯誤：找不到檔案 {input_file}，請確認檔案已產生。")
+    except:
+        # 萬一不支援num，嘗試最基本載入
+        pdf.add_font("MSJH", style="", fname=font_path)
+
+    #標題寫入,置中顯示
+    pdf.set_font("MSJH", size=30) 
+    pdf.cell(0, 15, "TXT轉PDF to Demo", ln=True, align='C')
+    pdf.ln(5)
+
+    try:
+        #內文字體大小
+        pdf.set_font("MSJH", size=12) 
+
+        #讀取UTF-8,設計自動換行防跑版
+        with open(source_file, "r", encoding="utf-8") as f:
+            content = f.read()
+            pdf.multi_cell(w=0, h=10, txt=content)
+        
+        pdf.output(output_file)
+        print(f"✨ PDF 已生成：{output_file}")
+
     except Exception as e:
-        print(f"❌ 發生未知錯誤：{e}")
+        print(f"❌ 發生錯誤：{e}")
 
 if __name__ == "__main__":
-    convert_to_pdf()
+    generate_demo_pdf()
