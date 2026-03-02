@@ -9,3 +9,7 @@
 Nick:
 當年能力不足，為了處理Java編碼和 iText 庫，寫到頭破血流；
 如今嘗試用Python解決當年的困境
+
+<span>下圖為完成實作的預覽頁面</span>
+
+<img width="694" height="272" alt="image" src="https://github.com/user-attachments/assets/535c5e9e-0d27-4e48-9ed6-f039f3bc3e98" />
