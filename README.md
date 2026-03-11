@@ -18,7 +18,7 @@
 Nick:
 當年能力不足，為了處理Java編碼和 iText 庫，寫到頭破血流；
 
-如今嘗試用Python解決當年的困境，由於是228連假抽空撰寫，所以沒有採用先進封裝寫法,只是單純快速撰寫完成,彌補當年的遺憾
+在228連假時抽空撰寫，嘗試用Python解決當年的困境，只是單純想快速撰寫完成，所以沒有採用先進封裝寫法，彌補當年的遺憾
 
 Years ago, I struggled significantly with Java encoding issues and the iText library; at the time, it was a daunting technical challenge that felt like an uphill battle. Today, I’ve revisited and resolved those old frustrations using Python. This project was developed during the February 28th long weekend as a personal milestone. While I prioritized a quick, functional implementation over complex software patterns or advanced encapsulation, this serves as a meaningful way to close a chapter on a past technical regret.
 
