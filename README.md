@@ -7,7 +7,7 @@
    
 3. **PDF 生成器**：將 TXT 內容轉換為 PDF，並完美支援中文顯示（不再需要手動處理複雜的 JAR 包）。
    
-   Converts TXT content to PDF with full support for Chinese characters—eliminating the need for complex Java dependencies.
+   Converts TXT content to PDF with full support for Chinese characters eliminating the need for complex Java dependencies.
 
    
 4. **網頁預覽器**：建立一個 Flask 微網頁，提供按鈕讓使用者直接在瀏覽器開啟 PDF。
